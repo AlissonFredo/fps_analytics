@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/inertia-react';
+import React from 'react';
 import Header from './Header';
 import Aside from './Aside';
 import Content from './Content';
 import Footer from './Footer';
 
-export default function Authenticated({ auth, header, children }) {
+export default function Authenticated({ auth, children }) {
 
     return (
         <div className="wrapper">
-            <Header />
+            <Header auth={auth} />
             <Aside />
             <Content>
                 {children}
