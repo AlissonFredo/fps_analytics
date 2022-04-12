@@ -11,7 +11,9 @@ export default function Header({auth}) {
                     <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
                 </li>
                 <li className="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" className="nav-link">Home</a>
+                    <Link href={route('dashboard')} className="nav-link"> 
+                        Dashboard
+                    </Link>
                 </li>
                 <li className="nav-item d-none d-sm-inline-block">
                     <a href="#" className="nav-link">Contact</a>
@@ -32,7 +34,7 @@ export default function Header({auth}) {
                         <i className="nav-icon fas fa-caret-down"></i>
                     </a>
                     <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right" style={{left: 'inherit', right: '0px'}}>
-                        <Link href={route('logout')} className="dropdown-item"> 
+                        <Link href={route('logout')} method='post' className="dropdown-item"> 
                             <i className="nav-icon fas fa-sign-out-alt" />
                             <span className="ml-2">Sair</span>
                         </Link>

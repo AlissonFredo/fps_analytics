@@ -32,7 +32,7 @@ export default function Aside() {
                             return (
                                 <li className="nav-item" key={key}>
                                     <Link href={value.url} className={"nav-link " + isActive}> 
-                                        <i className="nav-icon fas fa-th"></i>
+                                        <i className={'nav-icon ' + value.icon}></i>
                                         <p>{value.label}</p>
                                     </Link>
                                 </li>

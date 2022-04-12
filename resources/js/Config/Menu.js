@@ -1,11 +1,13 @@
 export const Menu = [
     {
-        label: 'Home',
-        url: '/dashboard'
+        label: 'Dashboard',
+        url: '/dashboard',
+        icon: 'fas fa-home'
     },
     {
         label: 'Usuários',
-        url: '/user'
+        url: '/user',
+        icon: 'fas fa-user'
     }
 
 ]
