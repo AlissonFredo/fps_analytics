@@ -2,14 +2,14 @@ import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Head } from '@inertiajs/inertia-react';
 
-export default function Dashboard(props) {
+export default function Index(props) {
     return (
         <Authenticated
             auth={props.auth}
             errors={props.errors}
         >
-            <Head title="Dashboard 1" />
-
+            <Head title="Users" />
+            <h1>Cheguei</h1>
         </Authenticated>
     );
 }
