@@ -32,7 +32,7 @@ export default function Header({auth}) {
                         <i className="nav-icon fas fa-caret-down"></i>
                     </a>
                     <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right" style={{left: 'inherit', right: '0px'}}>
-                        <Link href={route('logout')} method="post" className="dropdown-item"> 
+                        <Link href={route('logout')} className="dropdown-item"> 
                             <i className="nav-icon fas fa-sign-out-alt" />
                             <span className="ml-2">Sair</span>
                         </Link>
