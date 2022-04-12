@@ -631,9 +631,6 @@ select {
 .float-right {
   float: right;
 }
-.m-0 {
-  margin: 0px;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -685,9 +682,6 @@ select {
 }
 .-mr-2 {
   margin-right: -0.5rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
