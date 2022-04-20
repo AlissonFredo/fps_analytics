@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('User/Create', []);
     }
 
     /**
@@ -35,7 +37,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|confirmed',
+        ]);
+ 
+        if ($validator->fails()) {
+            return response()->json([
+                'validator' => $validator->errors(),
+                'status' => 400
+            ]);
+        }
+
+        $stored = User::create($request->all());
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**
