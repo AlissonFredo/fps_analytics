@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/user/{page}', 'UserController@getAll')->name('user-get-all');
 
     Route::resources([
         'user' => 'UserController'
