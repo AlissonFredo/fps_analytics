@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react';
-import Button from '@/Components/Button';
-import Checkbox from '@/Components/Checkbox';
-import Guest from '@/Layouts/Guest';
-import Input from '@/Components/Input';
-import Label from '@/Components/Label';
-import ValidationErrors from '@/Components/ValidationErrors';
-import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import { useForm } from '@inertiajs/inertia-react';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -31,156 +25,81 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        // <Guest>
-        //     <Head title="Log in" />
-
-        //     {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-        //     <ValidationErrors errors={errors} />
-
-        //     <form onSubmit={submit}>
-        //         <div>
-        //             <Label forInput="email" value="Email" />
-
-        //             <Input
-        //                 type="text"
-        //                 name="email"
-        //                 value={data.email}
-        //                 className="mt-1 block w-full"
-        //                 autoComplete="username"
-        //                 isFocused={true}
-        //                 handleChange={onHandleChange}
-        //             />
-        //         </div>
-
-        //         <div className="mt-4">
-        //             <Label forInput="password" value="Password" />
-
-        //             <Input
-        //                 type="password"
-        //                 name="password"
-        //                 value={data.password}
-        //                 className="mt-1 block w-full"
-        //                 autoComplete="current-password"
-        //                 handleChange={onHandleChange}
-        //             />
-        //         </div>
-
-        //         <div className="block mt-4">
-        //             <label className="flex items-center">
-        //                 <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
-        //                 <span className="ml-2 text-sm text-gray-600">Remember me</span>
-        //             </label>
-        //         </div>
-
-        //         <div className="flex items-center justify-end mt-4">
-        //             {canResetPassword && (
-        //                 <Link
-        //                     href={route('password.request')}
-        //                     className="underline text-sm text-gray-600 hover:text-gray-900"
-        //                 >
-        //                     Forgot your password?
-        //                 </Link>
-        //             )}
-
-        //             <Button className="ml-4" processing={processing}>
-        //                 Log in
-        //             </Button>
-        //         </div>
-        //     </form>
-        // </Guest>
-
-
-        <div className='login-page'>
-
-
-            <div className='card w-50 p-3'>
-                <div className='card-body'>
-                    <form action="../../index3.html" method="post">
-                        <div className="input-group mb-3">
-                            <input type="email" className="form-control" placeholder="Email" />
-                            <div className="input-group-append">
-                                <div className="input-group-text">
-                                    <span className="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="input-group mb-3">
-                            <input type="password" className="form-control" placeholder="Password" />
-                            <div className="input-group-append">
-                                <div className="input-group-text">
-                                    <span className="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="icheck-primary">
-                                    <input type="checkbox" id="remember" />
-                                    <label for="remember">
-                                        Remember Me
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div className="col-12 text-right">
-                                <button type="submit" className="btn btn-primary">Sign In</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
+        <div className='login-page p-3'>
+            <div className="login-logo">
+                <a href="/">Coach Analytics</a>
             </div>
-
-            {/* <div className="login-box">
-                <div className="login-logo">
-                    <a href="../../index2.html">Coach Analytics</a>
-                </div>
-
-                <div className="w-75 card">
-                    <div className="card-body login-card-body">
-                        <form action="../../index3.html" method="post">
-                            <div className="input-group mb-3">
-                                <input type="email" className="form-control" placeholder="Email" />
+            <div className='col-md-5' style={{ maxWidth: "500px" }}>
+                <div className='card'>
+                    <div className='card-body p-4'>
+                        <form onSubmit={submit}>
+                            <div className='form-group mb-3'>
+                                <label htmlFor='e-mail'>Email</label>
+                                <div className="input-group">
+                                    <input
+                                        id='e-mail'
+                                        type="email"
+                                        className={"form-control " + (errors.email != undefined ? 'is-invalid' : '')}
+                                        placeholder="Email"
+                                        name="email"
+                                        value={data.email}
+                                        onChange={(e) => onHandleChange(e)}
+                                    />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <span className="fas fa-envelope"></span>
                                         </div>
                                     </div>
+                                </div>
+                                <span className='text-danger'>
+                                    {errors.email}
+                                </span>
                             </div>
-                            <div className="input-group mb-3">
-                                <input type="password" className="form-control" placeholder="Password" />
+                            <div className='form-group mb-3'>
+                                <label htmlFor='password'>Senha</label>
+                                <div className="input-group">
+                                    <input
+                                        type="password"
+                                        id='password'
+                                        className={"form-control " + (errors.password != undefined ? 'is-invalid' : '')}
+                                        placeholder="Senha"
+                                        name="password"
+                                        value={data.password}
+                                        onChange={(e) => onHandleChange(e)}
+                                    />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <span className="fas fa-lock"></span>
                                         </div>
                                     </div>
+                                </div>
+                                <span className='text-danger'>
+                                    {errors.password}
+                                </span>
                             </div>
                             <div className="row">
-                                <div className="col-8">
+                                <div className="col-12">
                                     <div className="icheck-primary">
-                                        <input type="checkbox" id="remember"/>
-                                            <label for="remember">
-                                                Remember Me
-                                            </label>
+                                        <input
+                                            type="checkbox"
+                                            id="remember"
+                                            name="remember"
+                                            value={data.remember}
+                                            onChange={(e) => onHandleChange(e)}
+                                        />
+                                        <label htmlFor="remember">
+                                            Lembre de mim
+                                        </label>
                                     </div>
                                 </div>
-
-                                <div className="col-4">
-                                    <button type="submit" className="btn btn-primary btn-block">Sign In</button>
+                                <div className="col-12 text-right">
+                                    <button className="btn bg-gradient-dark">Conecte-se</button>
                                 </div>
-
                             </div>
                         </form>
                     </div>
                 </div>
-            </div> */}
-
-
+            </div>
         </div>
-
-
-
     );
 }
